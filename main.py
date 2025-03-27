@@ -1,28 +1,4 @@
 import os
-class plagiarism:
-    def into_set(self, doc):
-        if not isinstance(doc, str):
-            raise ValueError('supplied argument should be string')
-        set1 = {}
-        for words in doc.split():
-            set1.append(words)
-            
-    def check(self, set1, set2):
-        self.set1 = set(set1)
-        self.set2 = set(set2)
-        common = len(self.set1 & self.set2)
-        union = len(self.set1.union(self.set2))
-        formula = (common / union) * 100
-        
-        if formula >= 50:
-            print(f'''Alert:
-                The document contents are very similar with {formula}% which indicate plagiarism.
-                ''')
-        else:
-            print(f'''Caution:
-                The document contents are not similar with {formula}% which indicate no plagiarism.
-                ''')
-        
     
 # Function to load the file
 def load_file(filename):
@@ -73,18 +49,19 @@ def compare_text():
     vc = plagiarism()
     con1 = vc.into_set(file1)
     con2 = vc.into_set(file2)
-    similarity = vc.check(con1, con2)
+    vc.check(con1, con2)
 
 def menu():
     while True:
-        print("\n--- Plagiarism Checker Menu ---")
-        print("1. Check Plagiarism(select via file list)")
-        print("2. Exit")
+        print("\n---- Plagiarism Checker Menu ----")
+        print("1. Check Plagiarism")
+        print("2. Search")
+        print("3. Exit")
         choice = input("Enter your choice : ").strip()
         if choice == "1":
             compare_text()
-        elif choice == "2":
-            print("Exiting the application.")
+        elif choice == "3":
+            print("Exiting ...")
             break
         else:
             print("Invalid choice. Please try again.")
