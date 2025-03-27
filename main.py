@@ -1,4 +1,6 @@
 import os
+from plag import Plagiarism
+from search import Searching
 
 def load_file(filename):
     '''Function to load the file'''
