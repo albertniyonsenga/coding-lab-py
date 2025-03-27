@@ -8,7 +8,7 @@ class Plagiarism:
             raise ValueError('Input must be a string')
         return doc_content.split()  # split text into words
     
-    def check-plag(self, words1, words2):
+    def check_plag(self, words1, words2):
         set1 = set(words1)
         set2 = set(words2)
         common = len(set1 & set2)
